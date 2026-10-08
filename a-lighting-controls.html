@@ -24,21 +24,17 @@
       { name: "Teal", color: "#248a87" },
     ];
     let index = 0;
-    let updates_enabled = true;
+    
     const label = document.querySelector("#label");
     const swatch = document.querySelector("#swatch");
 
     function render() {
-      if (updates_enabled) {
-        let preset = presets[0];
-        for (let i = 0; i < presets.length; i++) {
-          if (i === index) preset = presets[i];
-        }
-        label.textContent = preset.name;
-        swatch.style.backgroundColor = preset.color;
-      } else {
-        console.log("ignored update while updates are disabled");
+      let preset = presets[0];
+      for (let i = 0; i < presets.length; i++) {
+        if (i === index) preset = presets[i];
       }
+      label.textContent = preset.name;
+      swatch.style.backgroundColor = preset.color;
     }
 
     document.querySelector("#next").addEventListener("click", () => {
